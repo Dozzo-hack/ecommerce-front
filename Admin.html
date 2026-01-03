@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord Admin - MyShop</title>
+  <link rel="stylesheet" href="Admin.css">
+</head>
+<body>
+  <header>
+    <h1>🛍️ Tableau de bord MyShop</h1>
+    <p>Gérez vos catégories et produits facilement</p>
+    <p class="back-link"><a href="../index.html">← Retour à la boutique</a></p>
+  </header>
+  <main>
+    <!-- === Section Catégories === -->
+    <section class="card" id="category-section">
+      <h2>📁 Gestion des Catégories</h2>
+
+      <form id="categoryForm">
+        <input type="text" id="categoryName" placeholder="Nom de la catégorie" required>
+        <input type="text" id="categoryDescription" placeholder="Description (optionnel)">
+        <button type="submit">Ajouter</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="categoryList"></tbody>
+      </table>
+    </section>
+
+    <!-- === Section Produits === -->
+    <section class="card" id="product-section">
+      <h2>📦 Gestion des Produits</h2>
+
+      <form id="productForm" enctype="multipart/form-data">
+        <input type="text" id="productName" placeholder="Nom du produit" required>
+        <input type="text" id="productDescription" placeholder="Description">
+        <input type="number" id="productPrice" placeholder="Prix" required>
+        <select id="productCategory" required></select>
+        <input type="file" id="productImage" accept="image/*" />
+        <button type="submit">Ajouter</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Catégorie</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 MyShop by Duhamel</p>
+  </footer>
+
+  <script src="Admin.js"></script>
+</body>
+</html>
