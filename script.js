@@ -1,8 +1,8 @@
 // ==========================
 // CONFIG
 // ==========================
-const API_URL = "http://localhost:5000/api";
-const UPLOADS_URL = "http://localhost:5000/uploads";
+const API_URL = "https://ecommerce-backend-q5ld.onrender.com/api";
+const UPLOADS_URL = "https://ecommerce-backend-q5ld.onrender.com/uploads";
 const WHATSAPP_NUMBER = "237640483676";
 
 // ==========================
@@ -234,4 +234,5 @@ function checkUser() {
 updateCart();
 loadCategories();
 loadProducts();
+
 checkUser();
