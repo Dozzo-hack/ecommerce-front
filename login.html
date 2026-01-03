@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Connexion | MyShop</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h1>Bienvenue sur <span>MyShop</span></h1>
+
+    <div class="tabs">
+      <button class="tab active" id="loginTab">Connexion</button>
+      <button class="tab" id="registerTab">Inscription</button>
+    </div>
+
+    <!-- Formulaire Connexion -->
+    <form id="loginForm" class="form active">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Mot de passe" required />
+      <button type="submit">Se connecter</button>
+    </form>
+
+    <!-- Formulaire Inscription -->
+    <form id="registerForm" class="form">
+      <input type="text" id="registerName" placeholder="Nom complet" required />
+      <input type="email" id="registerEmail" placeholder="Email" required />
+      <input type="password" id="registerPassword" placeholder="Mot de passe (min 6)" required />
+      <button type="submit">Créer un compte</button>
+    </form>
+
+    <p class="back-link"><a href="index.html">← Retour à la boutique</a></p>
+  </div>
+
+  <script>
+    // Tabs
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+
+    loginTab.addEventListener("click", () => {
+      loginTab.classList.add("active");
+      registerTab.classList.remove("active");
+      loginForm.classList.add("active");
+      registerForm.classList.remove("active");
+    });
+
+    registerTab.addEventListener("click", () => {
+      registerTab.classList.add("active");
+      loginTab.classList.remove("active");
+      registerForm.classList.add("active");
+      loginForm.classList.remove("active");
+    });
+
+    // Connexion
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value.trim();
+
+      try {
+        const res = await fetch("http://localhost:5000/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          // stocker user + token sous "user"
+          localStorage.setItem("user", JSON.stringify({
+            _id: data._id,
+            name: data.name,
+            email: data.email,
+            role: data.role,
+            token: data.token
+          }));
+          alert("Connexion réussie ✅");
+          // redirige selon rôle
+          if (data.role === "admin") window.location.href = "Admindashboard/Admin.html";
+          else window.location.href = "index.html";
+        } else {
+          alert(data.message || "Email ou mot de passe incorrect");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Erreur serveur");
+      }
+    });
+
+    // Inscription
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("registerName").value.trim();
+      const email = document.getElementById("registerEmail").value.trim();
+      const password = document.getElementById("registerPassword").value.trim();
+
+      if (password.length < 6) return alert("Mot de passe trop court (min 6 caractères)");
+
+      try {
+        const res = await fetch("http://localhost:5000/api/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          alert("Compte créé ✅ Connectez-vous maintenant.");
+          loginTab.click();
+        } else {
+          alert(data.message || "Erreur inscription");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Erreur serveur");
+      }
+    });
+  </script>
+</body>
+</html>

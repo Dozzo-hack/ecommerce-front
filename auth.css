@@ -1,0 +1,78 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #ff8a00, #e52e71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #fff;
+}
+
+.auth-container {
+  background: #fff;
+  color: #333;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.auth-container h1 span {
+  color: #e52e71;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+}
+
+.tab.active {
+  background: linear-gradient(120deg, #ff8a00, #e52e71);
+  color: #fff;
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form.active {
+  display: flex;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: linear-gradient(120deg, #ff8a00, #e52e71);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.back-link a {
+  color: #e52e71;
+  text-decoration: none;
+}

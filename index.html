@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MyShop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Script Google AdSense -->
+  <script data-ad-client="ca-pub-4590901017300969" async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+<!-- HEADER EXISTANT -->
+<header class="header">
+  <div class="header-left">
+    <a class="brand" href="index.html">MyShop</a>
+  </div>
+  <div class="header-center">
+    <input id="searchInput" placeholder="Rechercher un produit, ex: smartphone" />
+    <select id="categoryFilter">
+      <option value="">Toutes catégories</option>
+    </select>
+  </div>
+  <div class="header-right">
+    <a id="adminLink" href="Admindashboard/Admin.html" class="hidden">Admin</a>
+    <a id="loginLink" href="login.html">Connexion / Inscription</a>
+    <button id="cartBtn" title="Voir le panier">🛒 <span id="cartCount">0</span></button>
+  </div>
+</header>
+
+<!-- BARRE CATEGORIES -->
+<nav class="category-bar" id="categoryBar"></nav>
+
+<!-- HERO / PROMO -->
+<section class="hero">
+  <div class="hero-card">
+    <h1>🔥 Soldes exceptionnelles</h1>
+    <p>Jusqu’à <strong>-40%</strong> sur nos meilleurs produits</p>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+      Voir les produits
+    </button>
+  </div>
+</section>
+
+<!-- PUB AD SENSE EN TOP -->
+<div class="adsense-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4590901017300969"
+       data-ad-slot="YYYYYYYYYYY"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+<!-- PRODUITS -->
+<main class="products-section" id="products">
+  <h2>Nos Produits</h2>
+  
+  <div id="productGrid" class="product-grid"></div>
+  <div id="loader" class="loader">Chargement…</div>
+</main>
+
+<!-- PUB AD SENSE ENTRE PRODUITS -->
+<div class="adsense-middle">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4590901017300969"
+       data-ad-slot="ZZZZZZZZZZZ"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+<!-- MODAL DETAIL PRODUIT -->
+<div id="productModal" class="modal hidden">
+  <div class="modal-content">
+    <button id="closeModal" class="close">✕</button>
+
+    <img id="modalImg" alt="Produit" />
+    <h3 id="modalName"></h3>
+    <p id="modalDesc"></p>
+    <strong id="modalPrice"></strong>
+
+    <button id="modalAddCart" class="btn btn-primary">
+      Ajouter au panier
+    </button>
+  </div>
+</div>
+
+<!-- PANIER -->
+<div id="cartModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-panel">
+    <button id="closeCart" class="close">✕</button>
+    <h2>Ton panier</h2>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div>Total : <strong id="cartTotal">0.00</strong> FCFA</div>
+      <div>
+        <button id="clearCart" class="btn btn-danger">Vider</button>
+        <button id="checkoutBtn" class="btn btn-primary">Commander via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PUB AD SENSE FOOTER -->
+<footer>
+  <div class="adsense-footer">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4590901017300969"
+         data-ad-slot="AAAAAAAAAAA"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <p>© 2026 MyShop. Tous droits réservés.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
