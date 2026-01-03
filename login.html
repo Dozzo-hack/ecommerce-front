@@ -61,7 +61,7 @@
       const password = document.getElementById("loginPassword").value.trim();
 
       try {
-        const res = await fetch("http://localhost:5000/api/auth/login", {
+        const res = await fetch("https://ecommerce-backend-q5ld.onrender.com/api/auth/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })
@@ -99,7 +99,7 @@
       if (password.length < 6) return alert("Mot de passe trop court (min 6 caractères)");
 
       try {
-        const res = await fetch("http://localhost:5000/api/auth/register", {
+        const res = await fetch("https://ecommerce-backend-q5ld.onrender.com/api/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password })
@@ -119,3 +119,4 @@
   </script>
 </body>
 </html>
+
