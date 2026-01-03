@@ -47,7 +47,7 @@ async function loadProducts() {
         <td>${p.name}</td>
         <td>${Number(p.price).toLocaleString()}</td>
         <td>${p.category?.name || "—"}</td>
-         <td>${p.image ? `<img src="http://localhost:5000/uploads/${p.image}" alt="${p.name}" width="80"/>` : "—"}</td>
+         <td>${p.image ? `<img src="https://ecommerce-backend-q5ld.onrender.com/uploads/${p.image}" alt="${p.name}" width="80"/>` : "—"}</td>
         <td><button data-id="${p._id}" class="delete-product">🗑️</button></td>
       `;
       productList.appendChild(row);
@@ -177,4 +177,5 @@ productList.addEventListener("click", async (e) => {
   await loadCategories();
   await loadProducts();
 })();
+
 
