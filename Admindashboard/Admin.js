@@ -1,4 +1,4 @@
-const API_BASE = "https://ecommerce-backend-q5ld.onrender.coma/api";
+const API_BASE = "https://ecommerce-backend-q5ld.onrender.com/api";
 const productForm = document.getElementById("productForm");
 const categoryForm = document.getElementById("categoryForm");
 const categorySelect = document.getElementById("productCategory");
@@ -177,5 +177,6 @@ productList.addEventListener("click", async (e) => {
   await loadCategories();
   await loadProducts();
 })();
+
 
 
